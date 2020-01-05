@@ -27,6 +27,24 @@ class AppFixtures extends Fixture
         $user1->setNomcomplet("damendiaye");
         $manager->persist($user1);
 
+
+        $user2 = new User("admin");
+        $user2->setPassword($this->encoder->encodePassword($user2, "abdou"));
+        $user2->setRoles(array("ROLE_ADMIN"));
+        $user2->setIsActive(true);
+        $user2->setUsername("abdou123");
+        $user2->setNomcomplet("abdoudiop");
+        $manager->persist($user2);
+
+
+        $user3 = new User("caissier");
+        $user3->setPassword($this->encoder->encodePassword($user3, "fatou123"));
+        $user3->setRoles(array("ROLE_CAISSIER"));
+        $user3->setIsActive(true);
+        $user3->setUsername("fatou");
+        $user3->setNomcomplet("fatouba");
+        $manager->persist($user3);
+
         $manager->flush();
     }
 }
